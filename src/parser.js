@@ -20,5 +20,5 @@ export default (data) => {
     return post;
   });
 
-  return { feed, posts, latestPost: posts[0] };
+  return { feed, posts };
 };
