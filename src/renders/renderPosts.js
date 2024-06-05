@@ -5,9 +5,8 @@ export default (postsElements, posts, state, i18n) => {
   cardBody.classList.add('card-body');
   const h2 = document.createElement('h2');
   h2.classList.add('card-title', 'h4');
-  h2.textContent = 'Посты';
+  h2.textContent = i18n.t('posts');
   cardBody.append(h2);
-  cardWrapper.append(cardBody);
   const ul = document.createElement('ul');
   ul.classList.add('list-group', 'border-0', 'rounded-0');
   posts.forEach((post) => {
@@ -34,6 +33,6 @@ export default (postsElements, posts, state, i18n) => {
     li.append(a, button);
     ul.append(li);
   });
-  cardWrapper.append(ul);
+  cardWrapper.append(cardBody, ul);
   postsElements.replaceChildren(cardWrapper);
 };

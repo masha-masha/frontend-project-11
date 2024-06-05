@@ -1,17 +1,23 @@
 import renderFeeds from './renders/renderFeeds.js';
 import renderPosts from './renders/renderPosts.js';
-import rendersErrors from './renders/rendersErrors.js';
+import renderModal from './renders/renderModal.js';
+import handleStatus from './renders/handleStatus.js';
 
-export default (elements, i18n, state) => (path) => {
+export default (elements, i18n, state) => (path, value) => {
+  const { feeds, posts } = elements.content;
+  const { feedback, input, button } = elements.basicElements;
   switch (path) {
     case 'feeds':
-      renderFeeds(elements.content.feeds, state.feeds);
+      renderFeeds(feeds, state.feeds, i18n);
       break;
     case 'posts':
-      renderPosts(elements.content.posts, state.posts, state, i18n);
+      renderPosts(posts, state.posts, state, i18n);
       break;
-    case 'errors':
-      rendersErrors(elements.basicElements.input, elements.basicElements.feedback, i18n, state);
+    case 'curPostforModal':
+      renderModal(elements.modalElements, state);
+      break;
+    case 'status':
+      handleStatus(input, feedback, button, value, i18n, state);
       break;
     default:
       break;

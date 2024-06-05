@@ -1,9 +1,10 @@
 export default (data) => {
   const parser = new DOMParser();
   const htmlRSS = parser.parseFromString(data, 'text/xml');
-  const error = htmlRSS.querySelector('parsererror');
-  if (error) {
-    return false;
+  const parsererror = htmlRSS.querySelector('parsererror');
+  if (parsererror) {
+    const error = new Error('invalidRSS');
+    throw error;
   }
   const feed = {
     title: htmlRSS.querySelector('title').textContent,

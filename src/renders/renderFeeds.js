@@ -1,12 +1,12 @@
-export default (container, feeds) => {
+export default (container, feeds, i18n) => {
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('card', 'border-0');
   const cardBody = document.createElement('div');
   cardBody.classList.add('card-body');
   const h2 = document.createElement('h2');
   h2.classList.add('card-title', 'h4');
-  h2.textContent = 'Фиды';
-  cardWrapper.append(h2, cardBody);
+  h2.textContent = i18n.t('feeds');
+  cardBody.append(h2);
   const ul = document.createElement('ul');
   ul.classList.add('list-group', 'border-0', 'rounded-0');
   feeds.forEach((feed) => {
@@ -21,6 +21,6 @@ export default (container, feeds) => {
     li.append(h3, p);
     ul.append(li);
   });
-  cardWrapper.append(ul);
+  cardWrapper.append(cardBody, ul);
   container.replaceChildren(cardWrapper);
 };
