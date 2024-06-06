@@ -51,7 +51,7 @@ export default async () => {
         .string()
         .url('invalidURL')
         .notOneOf(existsLinks, 'alreadyExists')
-        .required(),
+        .required('notShouldBeEmpty'),
     });
     return schema.validate({ url });
   };
