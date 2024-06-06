@@ -21,6 +21,6 @@ const updatePosts = (state) => {
       throw error;
     }));
 
- setTimeout(() => updatePosts(state), 5000);
+  setTimeout(() => updatePosts(state), 5000);
 };
 export default updatePosts;
