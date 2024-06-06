@@ -1,7 +1,7 @@
-import renderFeeds from './renders/renderFeeds.js';
-import renderPosts from './renders/renderPosts.js';
-import renderModal from './renders/renderModal.js';
-import handleStatus from './renders/handleStatus.js';
+import renderFeeds from './funcsForView/renderFeeds.js';
+import renderPosts from './funcsForView/renderPosts.js';
+import renderModal from './funcsForView/renderModal.js';
+import handleStatus from './funcsForView/handleStatus.js';
 
 export default (elements, i18n, state) => (path, value) => {
   const { feeds, posts } = elements.content;
