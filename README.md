@@ -25,5 +25,5 @@
       </li>
       <li><h3>Build</h3>
        make build
-      <li>
+      <li/>
       </ol>
