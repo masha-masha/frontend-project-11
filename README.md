@@ -15,7 +15,7 @@
 </p>
    <ol>
      <li><h3>Clone the repository locally:</h3>
-         git@github.com:masha-masha/frontend-project-46.git
+         git@github.com:masha-masha/frontend-project-11.git
       </li>
       <li><h3>Install all dependencies:</h3>
          make install
