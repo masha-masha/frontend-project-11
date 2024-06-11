@@ -60,13 +60,13 @@ export default async () => {
   elements.basicElements.form.addEventListener('submit', (e) => {
     e.preventDefault();
     const { value } = elements.basicElements.input;
-    validateData(value, watchedState.links)
+    validateData(value, watchedState.feeds)
       .then(() => {
         watchedState.status = 'sending';
         return axios.get(createUrl(value));
       })
       .then((response) => {
-        const { feed, posts } = parser(response.data.contents);
+        const { feed, posts } = parser(response.data.contents, value);
         watchedState.feeds.push(feed);
         const updatedPosts = posts.map((post) => ({ ...post, id: _.uniqueId() }));
         watchedState.posts.unshift(...updatedPosts);

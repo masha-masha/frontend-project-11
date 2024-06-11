@@ -10,7 +10,7 @@ export default (data) => {
     title: htmlRSS.querySelector('title').textContent,
     description: htmlRSS.querySelector('description').textContent,
   };
-
+  console.log(feed);
   const items = htmlRSS.querySelectorAll('item');
   const posts = [...items].map((item) => {
     const post = {
