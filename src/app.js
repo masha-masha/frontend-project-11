@@ -21,7 +21,6 @@ export default async () => {
   const initialState = {
     status: '',
     errors: '',
-    links: [],
     feeds: [],
     posts: [],
     alreadyVisit: [],
@@ -72,7 +71,6 @@ export default async () => {
         watchedState.feeds.push(feed);
         const updatedPosts = posts.map((post) => ({ ...post, id: _.uniqueId() }));
         watchedState.posts.unshift(...updatedPosts);
-        watchedState.links.push(value);
         watchedState.status = 'success';
       })
       .catch((error) => {

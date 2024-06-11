@@ -4,7 +4,7 @@ import createUrl from './createUrl.js';
 import parser from './parser.js';
 
 const updatePosts = (state) => {
-  state.links.map((link) => axios.get(createUrl(link))
+  state.feeds.map(({link}) => axios.get(createUrl(link))
     .then((response) => {
       const data = response.data.contents;
       const { posts } = parser(data);
