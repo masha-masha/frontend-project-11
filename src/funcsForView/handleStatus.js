@@ -9,10 +9,10 @@ export default (input, feedback, button, value, i18n, state) => {
       feedback.textContent = i18n.t('validRSS');
       button.disabled = false;
       break;
-    case 'errors':
+    case 'error':
       feedback.classList.add('text-danger');
       input.classList.add('is-invalid');
-      feedback.textContent = i18n.t(`${state.errors}`);
+      feedback.textContent = i18n.t(`${state.error}`);
       button.disabled = false;
       break;
     case 'sending':

@@ -19,12 +19,12 @@ export default async () => {
     resources,
   });
   const initialState = {
-    status: '',
-    errors: '',
+    status: 'filling',
+    error: null,
     feeds: [],
     posts: [],
-    alreadyVisit: [],
-    curPostforModal: '',
+    visitedPosts: [],
+    currentModalPos: '',
   };
   const elements = {
     basicElements: {
@@ -81,8 +81,8 @@ export default async () => {
         } else {
           curErr = error.message;
         }
-        watchedState.errors = curErr;
-        watchedState.status = 'errors';
+        watchedState.error = curErr;
+        watchedState.status = 'error';
       });
   });
   updatePosts(watchedState);
@@ -92,9 +92,9 @@ export default async () => {
     switch (tagName) {
       case 'A':
       case 'BUTTON':
-        watchedState.alreadyVisit.push(e.target.id);
+        watchedState.visitedPosts.push(e.target.id);
         watchedState.posts = [...watchedState.posts];
-        watchedState.curPostforModal = e.target.id;
+        watchedState.currentModalPost = e.target.id;
         break;
       default:
         break;
