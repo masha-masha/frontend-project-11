@@ -45,7 +45,7 @@ export default async () => {
     },
   };
   const validateData = (url, feeds) => {
-    const links = feeds.map(({link}) => link);
+    const links = feeds.map(({ link }) => link);
     const schema = yup.object().shape({
       url: yup
         .string()
