@@ -5,8 +5,7 @@
 
 <h1>RSS Reader</h1>
 <p>An RSS reader is a tool that allows you to collect articles from multiple RSS feeds in one place for easy reading.</p>
-<h2>See the result</h2>
-<a href=https://frontend-project-11-pied-theta.vercel.app/> See the result</a>
+<h2><a href=https://frontend-project-11-pied-theta.vercel.app/> See the result</a></h2>
 <p>
 <h2>System requirements</h2>
    <ul>
@@ -24,5 +23,7 @@
       <li><h3>Start local server</h3>
          make develop
       </li>
-      <li><h3>Build</h3><li>
+      <li><h3>Build</h3>
+       make build
+      <li>
       </ol>
