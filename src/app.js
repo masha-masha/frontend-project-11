@@ -45,12 +45,13 @@ export default async () => {
       closeButton: document.querySelector('.btn-secondary'),
     },
   };
-  const validateData = (url, existsLinks) => {
+  const validateData = (url, feeds) => {
+    const links = feeds.map(({link}) => link);
     const schema = yup.object().shape({
       url: yup
         .string()
         .url('invalidURL')
-        .notOneOf(existsLinks, 'alreadyExists')
+        .notOneOf(links, 'alreadyExists')
         .required('notShouldBeEmpty'),
     });
     return schema.validate({ url });
@@ -67,6 +68,7 @@ export default async () => {
       })
       .then((response) => {
         const { feed, posts } = parser(response.data.contents, value);
+        feed.link = value;
         watchedState.feeds.push(feed);
         const updatedPosts = posts.map((post) => ({ ...post, id: _.uniqueId() }));
         watchedState.posts.unshift(...updatedPosts);
