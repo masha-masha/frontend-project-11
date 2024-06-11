@@ -13,7 +13,7 @@ export default (elements, i18n, state) => (path, value) => {
     case 'posts':
       renderPosts(posts, state.posts, state, i18n);
       break;
-    case 'curPostforModal':
+    case 'currentModalPost':
       renderModal(elements.modalElements, state);
       break;
     case 'status':

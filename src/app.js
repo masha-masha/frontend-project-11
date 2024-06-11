@@ -24,7 +24,7 @@ export default async () => {
     feeds: [],
     posts: [],
     visitedPosts: [],
-    currentModalPos: '',
+    currentModalPost: null,
   };
   const elements = {
     basicElements: {
@@ -66,7 +66,7 @@ export default async () => {
         return axios.get(createUrl(value));
       })
       .then((response) => {
-        const { feed, posts } = parser(response.data.contents, value);
+        const { feed, posts } = parser(response.data.contents);
         feed.link = value;
         watchedState.feeds.push(feed);
         const updatedPosts = posts.map((post) => ({ ...post, id: _.uniqueId() }));
