@@ -5,9 +5,7 @@ import * as yup from 'yup';
 import i18next from 'i18next';
 import view from './view.js';
 import resources from './locales/index.js';
-import parser from './parser.js';
-import createUrl from './createUrl.js';
-import updatePosts from './updatePosts.js';
+import { getParsedData, createUrl, updatePosts } from './utils.js';
 
 export default async () => {
   const defaultLang = 'ru';
@@ -66,7 +64,7 @@ export default async () => {
         return axios.get(createUrl(value));
       })
       .then((response) => {
-        const { feed, posts } = parser(response.data.contents);
+        const { feed, posts } = getParsedData(response.data.contents);
         feed.link = value;
         watchedState.feeds.push(feed);
         const updatedPosts = posts.map((post) => ({ ...post, id: _.uniqueId() }));
