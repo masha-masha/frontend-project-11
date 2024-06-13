@@ -4,7 +4,7 @@ import createUrl from './createUrl.js';
 import parser from './parser.js';
 
 const updatePosts = (state) => {
-  state.feeds.map(({ link }) => axios.get(createUrl(link))
+  const promises = state.feeds.map(({ link }) => axios.get(createUrl(link))
     .then((response) => {
       const data = response.data.contents;
       const { posts } = parser(data);
@@ -21,6 +21,9 @@ const updatePosts = (state) => {
       throw error;
     }));
 
-  setTimeout(() => updatePosts(state), 5000);
+  Promise.all(promises)
+    .finally(() => {
+      setTimeout(() => updatePosts(state), 5000);
+    });
 };
 export default updatePosts;

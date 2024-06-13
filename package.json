@@ -15,7 +15,6 @@
     "i18next": "^23.11.5",
     "lodash": "^4.17.21",
     "on-change": "^5.0.1",
-    "save-dev": "^0.0.1-security",
     "yup": "^1.4.0"
   },
   "devDependencies": {
