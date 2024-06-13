@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, { set } from 'lodash';
 import onChange from 'on-change';
 import axios from 'axios';
 import * as yup from 'yup';
@@ -23,7 +23,7 @@ export default async () => {
     error: null,
     feeds: [],
     posts: [],
-    visitedPosts: [],
+    visitedPosts: new Set(),
     currentModalPost: null,
   };
   const elements = {
@@ -92,7 +92,7 @@ export default async () => {
     switch (tagName) {
       case 'A':
       case 'BUTTON':
-        watchedState.visitedPosts.push(e.target.id);
+        watchedState.visitedPosts.add(e.target.id);
         watchedState.posts = [...watchedState.posts];
         watchedState.currentModalPost = e.target.id;
         break;

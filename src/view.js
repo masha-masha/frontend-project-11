@@ -39,7 +39,7 @@ const renderPosts = (postsElements, posts, state, i18n) => {
     const li = document.createElement('li');
     li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-start', 'border-0', 'border-end-0');
     const a = document.createElement('a');
-    if (state.visitedPosts.includes(post.id)) {
+    if (state.visitedPosts.has(post.id)) {
       a.classList.add('fw-normal', 'link-secondary');
     } else {
       a.classList.add('fw-bold');
