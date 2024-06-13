@@ -1,4 +1,4 @@
-import _, { set } from 'lodash';
+import _ from 'lodash';
 import onChange from 'on-change';
 import axios from 'axios';
 import * as yup from 'yup';

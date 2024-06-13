@@ -24,6 +24,7 @@ const renderFeeds = (container, feeds, i18n) => {
   cardWrapper.append(cardBody, ul);
   container.replaceChildren(cardWrapper);
 };
+
 const renderPosts = (postsElements, posts, state, i18n) => {
   const cardWrapper = document.createElement('div');
   cardWrapper.classList.add('card', 'border-0');
@@ -62,6 +63,7 @@ const renderPosts = (postsElements, posts, state, i18n) => {
   cardWrapper.append(cardBody, ul);
   postsElements.replaceChildren(cardWrapper);
 };
+
 const renderModal = (modalElements, state) => {
   const curIndex = state.currentModalPost;
   const findPostInPosts = state.posts.find(({ id }) => id === curIndex);
@@ -70,6 +72,7 @@ const renderModal = (modalElements, state) => {
   modalElements.body.textContent = description;
   modalElements.openButton.href = link;
 };
+
 const handleStatus = (input, feedback, button, value, i18n, state) => {
   switch (value) {
     case 'success':
